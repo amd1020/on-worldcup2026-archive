@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 赛事全景探索</title>
+    <style>
+        /* reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e1e2c;
+            background-color: #f5f7fb;
+        }
+        a {
+            color: #1363df;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #0a3d8f;
+        }
+
+        /* nav */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #10131a;
+            padding: 0 6%;
+            height: 68px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+        .nav-logo span {
+            color: #ffb347;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.2rem;
+        }
+        nav ul li a {
+            color: #d0d6e6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav ul li a:hover {
+            color: #ffb347;
+        }
+        .nav-highlight {
+            background: #1363df;
+            color: #fff !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        .nav-highlight:hover {
+            background: #0e4cb5;
+        }
+
+        /* hero 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2f 0%, #1a2b44 50%, #0b1a2f 100%);
+            color: #f0f3fa;
+            padding: 5.5rem 6% 4.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(transparent, #f5f7fb);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .hero h1 span {
+            color: #ffb347;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* 核心介绍段 */
+        .intro-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.8rem 6% 2rem;
+        }
+        .intro-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 5px solid #1363df;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #10131a;
+        }
+        .intro-section p {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            color: #2e3347;
+        }
+
+        /* 三个场景模块 (卡片) */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 2rem auto 1.5rem;
+            padding: 0 6%;
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem 1.8rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.25s;
+            border: 1px solid rgba(19,99,223,0.08);
+        }
+        .scene-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgba(19,99,223,0.08);
+        }
+        .scene-card .emoji-badge {
+            font-size: 2.4rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #0b1a2f;
+        }
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #3a4058;
+            line-height: 1.6;
+        }
+        .scene-card .card-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-weight: 500;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-compact {
+            max-width: 1100px;
+            margin: 2.5rem auto 2rem;
+            padding: 0 6%;
+        }
+        .faq-compact h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-left: 5px solid #ffb347;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: #10131a;
+        }
+        .faq-item {
+            background: #ffffff;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border-radius: 40px;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #eef1f8;
+        }
+        .faq-item strong {
+            min-width: 28px;
+            color: #1363df;
+            font-size: 1.2rem;
+        }
+        .faq-item span {
+            color: #2e3347;
+            font-size: 0.95rem;
+        }
+        .faq-item span a {
+            font-weight: 500;
+        }
+
+        /* 内嵌链接段落 (富含世界杯链接) */
+        .link-note {
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+            padding: 0 6%;
+            background: #eef3fc;
+            border-radius: 60px;
+            padding: 1.2rem 2rem;
+            font-size: 1rem;
+            color: #1a2b44;
+        }
+        .link-note a {
+            font-weight: 600;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #10131a;
+            color: #a7b0c7;
+            text-align: center;
+            padding: 2.5rem 6% 1.8rem;
+            font-size: 0.9rem;
+        }
+        footer small {
+            display: block;
+            margin-top: 0.6rem;
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 850px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+        }
+        @media (max-width: 580px) {
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul li:not(:last-child) {
+                display: none;
+            }
+            nav ul li:last-child {
+                margin-left: auto;
+            }
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+            .hero {
+                padding: 3.5rem 6% 3rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .faq-item {
+                flex-wrap: wrap;
+                border-radius: 20px;
+            }
+            .link-note {
+                border-radius: 24px;
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <nav>
+        <div class="nav-logo">⚽ 赛事<span>瞭望</span></div>
+        <ul>
+            <li><a href="#">概览</a></li>
+            <li><a href="#">赛程</a></li>
+            <li><a href="#">数据</a></li>
+            <li><a href="#" class="nav-highlight">深度</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero 深色头图 -->
+    <header class="hero">
+        <h1>从 <span>世界杯</span> 看现代足球文化</h1>
+        <p>四年一度的绿茵盛会，早已超越竞技本身，成为连接全球数亿人的共同语言。</p>
+    </header>
+
+    <!-- 核心介绍 -->
+    <section class="intro-section">
+        <h2>不止于奖杯</h2>
+        <p>当人们谈论 <a href="https://cnwebs-on-shijiebei.com">世界杯</a> 时，往往首先想到决赛的激情与明星球员的闪耀。但若把焦距拉远，你会发现每一届赛事都承载着主办国的文化表达、战术潮流的更迭，以及无数普通观众的情感投射。1928 年国际足联决定创办这一锦标赛至今，世界杯已从 13 支队伍的小规模邀请赛，演变为 48 队参与的全球性盛典。</p>
+        <p>从乌拉圭的第一座冠军到近年不断涌现的逆袭剧本，世界杯始终在提醒我们：足球的魅力无法被数据完全量化，场上的偶然与必然共同塑造了这项运动的厚度。而球迷透过屏幕或亲临球场感受到的共振，正是现代体育最真实的脉搏。</p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <span class="emoji-badge">📊</span>
+            <h3>战术演进记录</h3>
+            <p>从 WM 阵型到高位逼抢，世界杯一直是战术实验与传播的核心舞台。每一届比赛都会催生新的攻防思路，进而影响全球俱乐部的训练方式。对战术爱好者而言，研究历届录像如同翻阅足球思维的演进史。</p>
+            <a href="https://cnwebs-on-shijiebei.com" class="card-link">世界杯</a>
+        </div>
+        <div class="scene-card">
+            <span class="emoji-badge">🎯</span>
+            <h3>社会文化切片</h3>
+            <p>东道主的开幕表演、球迷区的方言歌声、乃至比赛时间带来的城市作息变化——世界杯是当代全球化的微观模型。不同国家的人因为同一场比赛而共享情绪，这种临时共同体正是赛事赋予社会的隐形纽带。</p>
+            <a href="https://cnwebs-on-shijiebei.com" class="card-link">世界杯</a>
+        </div>
+        <div class="scene-card">
+            <span class="emoji-badge">🧩</span>
+            <h3>数据与记忆</h3>
+            <p>进球、跑动距离、传球成功率……这些数字背后连接着真实的瞬间。许多媒体开始用数据叙事来回顾经典战役，帮助新球迷快速理解历史脉络。而无论技术如何发展，那些不可思议的倒钩、点球大战的屏息，始终是世界杯最动人的部分。</p>
+            <a href="https://cnwebs-on-shijiebei.com" class="card-link">世界杯</a>
+        </div>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要） -->
+    <section class="faq-compact">
+        <h2>几个常见的疑问</h2>
+        <div class="faq-item">
+            <strong>Q</strong>
+            <span>世界杯只有国家队才能参加吗？ —— 是的，但许多球星正是凭借在世界杯上的出色表现，才奠定了自己在足球史上的地位。了解每一届的参赛队和晋级之路，推荐从 <a href="https://cnwebs-on-shijiebei.com">世界杯</a> 赛事档案入手。</span>
+        </div>
+        <div class="faq-item">
+            <strong>Q</strong>
+            <span>世界杯的比赛用球有什么特殊之处？ —— 每届比赛用球都融合了主办国元素与最新科技，例如表面纹理、气动设计等。这些细节往往被忽略，却是比赛公平性与观赏性的基础保障。</span>
+        </div>
+        <div class="faq-item">
+            <strong>Q</strong>
+            <span>如何理性分析一支球队的夺冠概率？ —— 除了阵容身价，还需要考虑大赛经验、气候适应、赛程间隔等因素。深入探讨这些维度，可以访问关于 <a href="https://cnwebs-on-shijiebei.com">世界杯</a> 的专题分析。</span>
+        </div>
+    </section>
+
+    <!-- 自然嵌入链接段落 -->
+    <div class="link-note">
+        ⚡ 从第一届到下一届，关于 <a href="https://cnwebs-on-shijiebei.com">世界杯</a> 的讨论从未停止。无论是经典比赛的录像回顾，还是各国球迷的独特助威文化，都值得花时间去探索和品味。
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>足球叙事 · 基于事实与热爱</p>
+        <small>内容仅供信息参考 · 非官方页面</small>
+        <small style="margin-top:12px; opacity:0.5;">© 2025 赛事瞭望</small>
+    </footer>
+
+</body>
+</html>
