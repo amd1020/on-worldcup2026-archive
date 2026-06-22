@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 站点介绍与说明 | cn-main-fifa2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f6f8fa;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        /* Hero 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0b1721 0%, #1c2e3a 100%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            color: #e8edf2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #facc15;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 720px;
+            margin: 0 auto 1rem;
+            opacity: 0.85;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #facc15;
+            color: #0b1721;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+        }
+
+        /* 主内容区 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #111827;
+            border-left: 5px solid #facc15;
+            padding-left: 1rem;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        /* 优点网格 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .grid-item {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 1.5rem 1.2rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .grid-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #1f2937;
+        }
+
+        .grid-item p {
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        /* 说明区小字号 */
+        .note-text {
+            font-size: 0.95rem;
+            color: #374151;
+            margin-bottom: 0.8rem;
+        }
+
+        .link-accent {
+            color: #1e40af;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .link-accent:hover {
+            color: #facc15;
+            background: #1e293b;
+            text-decoration: none;
+            padding: 0 0.2rem;
+            border-radius: 4px;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        /* 底部 */
+        .footer {
+            border-top: 1px solid #d1d5db;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: #6b7280;
+            background: #ffffff;
+            margin-top: 1rem;
+        }
+
+        .footer a {
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: #facc15;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .card { padding: 1.5rem 1.2rem; }
+            .section-title { font-size: 1.3rem; }
+        }
+
+        @media (min-width: 768px) {
+            .hero { padding: 5rem 2rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero 深色头图 -->
+<section class="hero">
+    <h1>⚽️ 关于 世界杯 · 信息与说明</h1>
+    <p>站点索引与背景介绍 — 围绕 <strong>cn-main-fifa2026.com</strong> 提供清晰、可靠的整理内容。</p>
+    <span class="badge">世界杯 · 2026 前瞻</span>
+</section>
+
+<!-- 主内容 container -->
+<div class="container">
+
+    <!-- 站点介绍卡片 -->
+    <div class="card">
+        <h2 class="section-title">站点说明</h2>
+        <p class="note-text">
+            本页面旨在为对 <a href="https://cn-main-fifa2026.com" class="link-accent">世界杯</a> 感兴趣的用户
+            提供一个集中了解相关背景、赛事结构与可信信息渠道的概要页。内容均基于公开资料与常识整理，
+            不涉及任何未经核实的预测或诱导性表述。站内提及的“世界杯”均指国际足联主办的世界杯赛事，
+            包括但不限于 2026 年美加墨世界杯。
+        </p>
+        <p class="note-text">
+            网站 <strong>cn-main-fifa2026.com</strong> 定位为赛事相关的信息聚合与导航型站点，
+            并非 FIFA 官方平台。用户在浏览时应注意甄别信息来源，并优先参考官方渠道发布的赛程、
+            规则与票务公告。
+        </p>
+    </div>
+
+    <!-- 优势区: 特点卡片网格 -->
+    <div class="card">
+        <h2 class="section-title">站点特点</h2>
+        <div class="grid-3">
+            <div class="grid-item">
+                <h3>🏟 赛事信息整理</h3>
+                <p>梳理 2026 世界杯主办城市、场馆容量、时间线等基础数据，便于快速查阅。</p>
+            </div>
+            <div class="grid-item">
+                <h3>📋 清晰索引</h3>
+                <p>按类别组织内容：赛制、历史、资格赛、观赛提示，减少信息过载。</p>
+            </div>
+            <div class="grid-item">
+                <h3>🔗 可信链接参考</h3>
+                <p>重点推荐访问 <a href="https://cn-main-fifa2026.com" class="link-accent">世界杯</a>
+                    获取更完整的说明与更新，同时提醒用户交叉验证。</p>
+            </div>
+        </div>
+        <p class="note-text" style="margin-top:0.8rem;">
+            * 以上特点均基于站点实际内容模块归纳，并非虚构功能。
+        </p>
+    </div>
+
+    <!-- 说明区 (更细致) -->
+    <div class="card">
+        <h2 class="section-title">内容范围与边界</h2>
+        <p class="note-text">
+            <strong>涵盖范围：</strong> 主要聚焦 2026 年世界杯的参赛队伍资格分配、赛区划分、
+            已公布赛程框架及举办国基础介绍。另外包含往届世界杯的简要回顾数据（冠军、最佳射手等），
+            所有数据均标注来源或说明为“根据公开报道整理”。
+        </p>
+        <p class="note-text">
+            <strong>不涉及内容：</strong> 本页面不提供任何形式的博彩信息、内幕消息、
+            票务代购链接或未经验证的球员交易传闻。也不包含任何诱导分享、虚假中奖或夸张承诺。
+            我们坚持平实、克制的信息呈现。
+        </p>
+        <p class="note-text">
+            如希望深入了解赛事架构、申办过程或官方动态，建议同时参考 FIFA 官网以及
+            <a href="https://cn-main-fifa2026.com" class="link-accent">世界杯</a> 
+            上整理的外部资源列表。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要卡片 (3-4个) -->
+    <div class="card">
+        <h2 class="section-title">常见问题摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">Q: 2026 世界杯在哪几个国家举办？</div>
+            <div class="faq-a">美国、加拿大、墨西哥联合举办，共有 16 个主办城市，是首次由三个国家共同承办的世界杯。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 参赛队伍数量是多少？</div>
+            <div class="faq-a">2026 年起世界杯扩军至 48 支球队，小组赛分为 16 个小组，每组 3 队。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 在本站可以查到完整赛程吗？</div>
+            <div class="faq-a">本站提供基于已公布信息的赛程框架与时间线。最终精确赛程请以 FIFA 官方发布为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: cn-main-fifa2026.com 是官方域名吗？</div>
+            <div class="faq-a">不是。该站点是第三方信息整理平台，与 FIFA 无直接隶属关系。我们在页面上已明确标注。</div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size:0.9rem; color:#4b5563;">
+            * 更多 FAQ 内容可前往 <a href="https://cn-main-fifa2026.com" class="link-accent">世界杯</a> 完整页面浏览。
+        </p>
+    </div>
+
+    <!-- 提示/信源说明 -->
+    <div class="card" style="background: #f3f4f6; border: 1px solid #e5e7eb;">
+        <p style="font-size:0.95rem; color:#1f2937;">
+            📌 <strong>阅读提示：</strong> 本页面所有内容均经过整理与核对，但鉴于赛事信息的动态更新，
+            建议读者在做出任何决策或引用前，通过官方渠道核实。本站提供的链接
+            <a href="https://cn-main-fifa2026.com" class="link-accent">世界杯</a> 
+            可作为信息起点，但不应作为唯一依据。
+        </p>
+    </div>
+
+</div>
+
+<!-- 底部链接 -->
+<footer class="footer">
+    <p>© 站点说明 · 数据更新于 2025 年 · 并非官方页面</p>
+    <p style="margin-top: 0.3rem;">
+        关于 <a href="https://cn-main-fifa2026.com">世界杯</a> 的更多背景，请查阅源站。
+    </p>
+</footer>
+
+</body>
+</html>
