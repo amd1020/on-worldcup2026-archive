@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 世界杯简明指南 · 专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f5f8;
+            color: #1e1f24;
+            line-height: 1.7;
+        }
+
+        /* —— 深色头图 —— */
+        .hero {
+            background: linear-gradient(145deg, #0b1422 0%, #1a2a44 100%);
+            color: #eef0f5;
+            padding: 5rem 1.5rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, #f4f5f8);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 span {
+            color: #fecf5a;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #cbd5e3;
+            font-weight: 300;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            margin-top: 1.8rem;
+            background-color: #2e4870;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #dce6f3;
+            border: 1px solid #3f5a84;
+        }
+
+        /* —— 正文区 —— */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 4rem;
+        }
+
+        .intro-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .intro-card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #0a1f2f;
+            border-left: 5px solid #fecf5a;
+            padding-left: 1rem;
+        }
+
+        .intro-card p {
+            margin-bottom: 1rem;
+            color: #2c3744;
+        }
+
+        .intro-card a {
+            color: #1a5b9c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #9bb7d4;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .intro-card a:hover {
+            color: #083358;
+            text-decoration-color: #083358;
+        }
+
+        .highlight-box {
+            background-color: #f0f4fa;
+            border-radius: 14px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0 1rem;
+            border-left: 4px solid #fecf5a;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.6rem 0 0.2rem;
+        }
+
+        .feature-item {
+            background-color: #f8fafc;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e5eaef;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0a1f2f;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item span {
+            font-size: 0.95rem;
+            color: #3e4d5c;
+        }
+
+        .faq-mini {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dde3ea;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #102338;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1e3a5f;
+            cursor: pointer;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini summary::marker {
+            color: #fecf5a;
+        }
+
+        .faq-mini .answer {
+            padding: 0.5rem 0 0.2rem 1.2rem;
+            color: #364457;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            font-size: 0.95rem;
+            color: #5b687a;
+            border-top: 1px solid #d9e0e8;
+            padding-top: 2.2rem;
+        }
+
+        .footer-note a {
+            color: #1a5b9c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            color: #083358;
+        }
+
+        /* —— 响应式 —— */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+
+            .intro-card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .intro-card h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .hero {
+                padding: 3.2rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>2026 · <span>世界杯</span> 简明指南</h1>
+        <p>从赛区分布到观赛准备，一份扎实的赛前参考。信息准确、节奏平实，帮你快速进入状态。</p>
+        <div class="badge">🇺🇸🇨🇦🇲🇽 三国联合主办</div>
+    </header>
+
+    <!-- 浅色正文 -->
+    <main class="container">
+
+        <!-- 第一段：背景与基本认知 -->
+        <section class="intro-card">
+            <h2>一届横跨北美的赛事</h2>
+            <p>第 23 届男子足球世界杯将于 2026 年夏天在美国、加拿大、墨西哥三地举行。这是历史上第一次由三个国家共同承办，也是参赛队伍从 32 支扩军到 48 支的首届比赛。赛程将覆盖 16 座城市，从温哥华到墨西哥城，时区横跨太平洋、山地、中部与东部，对规划观赛路线提出新要求。</p>
+            <p>如果你正考虑了解这届 <a href="https://asia-2026sjb.com">世界杯</a> 的基本框架——包括赛制变化、场地分布和小组赛阶段的大致节奏——那么一份清晰的背景说明会很有帮助。比赛总数从 64 场增加到 80 场，淘汰赛阶段也随之调整，小组出线逻辑与以往不同。</p>
+        </section>
+
+        <!-- 第二段：特点与实用信息（含卡片网格） -->
+        <section class="intro-card">
+            <h2>赛程特点与观赛提醒</h2>
+            <p>由于主办国纬度跨度大，比赛城市的气候与海拔差异明显。东海岸的迈阿密与西海岸的西雅图温差可达 10°C 以上，高原城市（如瓜达拉哈拉、墨西哥城）对运动员的体能调节也是额外变量。建议提前了解各场地所在城市的天气规律。</p>
+
+            <div class="highlight-box">
+                <p><strong>实用提醒：</strong> 本届世界杯的时区覆盖 UTC-4 至 UTC-8，国内观赛时间大多落在深夜至清晨。如果需要跟踪实时赛果，建议提前设置好比赛日程提醒。官方售票采用分阶段抽签模式，转播权分配信息可留意后续公告。</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>48 支队伍</strong>
+                    <span>小组赛阶段分为 12 个小组，每组 4 队，前两名及部分小组第三名晋级 32 强淘汰赛。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>16 座城市</strong>
+                    <span>美国 11 座、墨西哥 3 座、加拿大 2 座。体育场容量从 4 万到 9 万不等。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>80 场比赛</strong>
+                    <span>从 2026 年 6 月 11 日揭幕战到 7 月 19 日决赛，赛程跨度约 39 天。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>签证与入境</strong>
+                    <span>三个主办国各有入境要求，建议持有效护照并提前确认是否需要申请相应签证或电子许可。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三段：访问提示 + FAQ 微型摘录 -->
+        <section class="intro-card">
+            <h2>访问提示与常见疑问</h2>
+            <p>对于计划前往现场或围绕赛程做深度关注的观众，有三个环节值得留意：首先是官方渠道的信息更新节奏——赛事日程、票务阶段、交通指引通常会在赛前一年陆续发布；其次是住宿与城际交通的预订窗口，主办城市在比赛周会出现明显溢价；最后是语言与支付环境，三国的官方语言和货币不同，但主要公共场所及线上服务普遍支持英语和信用卡。</p>
+            <p>如果你希望持续跟进这届 <a href="https://asia-2026sjb.com">世界杯</a> 的实用更新，包括赛程确认、分组抽签结果以及各主办国的观赛指南，可以把它作为一个信息参考站点，按需查阅。</p>
+
+            <div class="faq-mini">
+                <h3>常见问题摘要</h3>
+                <details>
+                    <summary>2026 世界杯有多少支球队？</summary>
+                    <div class="answer">48 支，比前届增加 16 支。小组赛每组 4 队。</div>
+                </details>
+                <details>
+                    <summary>决赛在哪里举行？</summary>
+                    <div class="answer">决赛场地尚未最终公布，预计在 2025 年完成选定，热门候选包括大都会体育场（纽约/新泽西）和 AT&T 体育场（达拉斯）。</div>
+                </details>
+                <details>
+                    <summary>票务大概什么时候开始？</summary>
+                    <div class="answer">首轮票务通常于赛前 12–15 个月启动，采用抽签制。具体日期以官方公告为准。</div>
+                </details>
+                <details>
+                    <summary>是否需要为每个主办国单独办签证？</summary>
+                    <div class="answer">建议分别确认：美国适用 ESTA 或 B1/B2，加拿大需 eTA 或访客签证，墨西哥通常凭有效美签可免签入境。实际政策可能调整。</div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 页尾提示 -->
+        <div class="footer-note">
+            <p>本页为赛事信息专题整理，内容基于公开资料汇编，仅供参考。<br>
+            关于 <a href="https://asia-2026sjb.com">世界杯</a> 的最新通知与完整赛程，可留意后续官方发布。</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
