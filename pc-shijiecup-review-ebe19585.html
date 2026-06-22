@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC 实界杯 · 日常观赛指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #faefe6 0%, #f7d9c4 50%, #f3c8af 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      color: #3e2c1f;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* 顶部导航（简约品牌条） */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 0.75rem 1.8rem;
+      border-radius: 60px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      color: #7c4b32;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5a3c2a;
+      padding: 0.25rem 0.1rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #b67b56;
+      color: #3e2c1f;
+    }
+
+    /* 核心介绍（hero 区） */
+    .hero-card {
+      background: #fffcf9;
+      border-radius: 36px;
+      padding: 3rem 2.5rem 2.8rem;
+      box-shadow: 0 16px 40px -12px rgba(130, 70, 40, 0.18);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #e4c9b8;
+      color: #482f20;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-card h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      line-height: 1.25;
+      color: #352116;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card h1 span {
+      background: linear-gradient(135deg, #b67b56, #8f5f42);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4e3828;
+      max-width: 720px;
+    }
+
+    .hero-text a {
+      color: #8f5f42;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .hero-text a:hover {
+      color: #6a4631;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .scene-card {
+      background: #fffcf9;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem 1.8rem;
+      box-shadow: 0 8px 22px rgba(110, 65, 35, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(130, 70, 40, 0.12);
+    }
+
+    .scene-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 540;
+      color: #3e2b1e;
+      margin-bottom: 0.75rem;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4d3929;
+      flex: 1;
+    }
+
+    .scene-card .tag {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #eddaca;
+      color: #4e3524;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      align-self: flex-start;
+    }
+
+    /* 常见说明区块 */
+    .faq-box {
+      background: #fffcf9;
+      border-radius: 36px;
+      padding: 2.4rem 2.5rem 2.5rem;
+      box-shadow: 0 10px 28px rgba(100, 55, 30, 0.06);
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-box h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #352116;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #f0dfd2;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 520;
+      color: #3e2a1c;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .faq-answer {
+      color: #5a4232;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .faq-answer a {
+      color: #8f5f42;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .faq-answer a:hover {
+      color: #6a4631;
+    }
+
+    /* 底部 */
+    .footer-note {
+      text-align: center;
+      color: #6d5544;
+      font-size: 0.85rem;
+      padding: 1.2rem 0 0.5rem;
+      border-top: 1px solid rgba(140, 90, 60, 0.15);
+      margin-top: 0.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .scenes-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-card h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .scenes-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-bar {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.8rem 1.2rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-card {
+        padding: 2rem 1.5rem;
+      }
+      .hero-card h1 {
+        font-size: 1.7rem;
+      }
+      .faq-box {
+        padding: 1.8rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- 顶部导航 -->
+  <nav class="nav-bar">
+    <div class="nav-brand">⚽ 实界杯·日常</div>
+    <div class="nav-links">
+      <a href="#">站点概述</a>
+      <a href="#">场景</a>
+      <a href="#">常见问题</a>
+    </div>
+  </nav>
+
+  <!-- 核心介绍 hero -->
+  <div class="hero-card">
+    <div class="hero-tag">🏟️ 关于站点</div>
+    <h1>观赛信息 · 自然<span>聚合</span></h1>
+    <div class="hero-text">
+      <p>
+        PC 实界杯是一个围绕足球世界杯内容的信息型站点，不涉及投注或博彩，重点在于整理赛事背景、赛程参考以及观赛文化。如果你对世界杯感兴趣，这个站点可以作为了解过往与当下赛事的基础入口。站点中的链接与内容均来自公开资料整理，我们更希望为你提供一份平实的观赛参考。
+      </p>
+      <p style="margin-top: 1rem;">
+        比如，当你想要回顾某一届的经典对阵，或者想看看不同赛区的出线规则，都可以在这里找到线索。而关于最新的赛事动态，你也可以直接去了解 
+        <a href="https://pc-shijiecup.com">世界杯</a> 
+        相关的完整介绍。整个站点的信息围绕中立、可信的原则组织，没有广告干扰。
+      </p>
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <div class="scene-icon">📋</div>
+      <h3>赛历参考</h3>
+      <p>从预选赛到决赛阶段，按时间线梳理各大赛区的比赛周期。方便对比历届间隔、东道主变化，以及赛制调整节点。</p>
+      <span class="tag">时间轴</span>
+    </div>
+    <div class="scene-card">
+      <div class="scene-icon">🏆</div>
+      <h3>经典记忆</h3>
+      <p>收录近几届世界杯的标志性比赛、进球与冷门。不渲染情绪，只陈述比赛经过与数据，适合安静回顾。</p>
+      <span class="tag">档案</span>
+    </div>
+    <div class="scene-card">
+      <div class="scene-icon">🌍</div>
+      <h3>资格与分区</h3>
+      <p>各大洲足联的晋级名额分配、附加赛规则、抽签分档逻辑。帮助理解参赛队伍如何一步步走向决赛圈。</p>
+      <span class="tag">规则</span>
+    </div>
+  </div>
+
+  <!-- 常见说明（FAQ摘要） -->
+  <div class="faq-box">
+    <h2>📌 常见说明</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">这个站点会实时更新最新赛果吗？</div>
+      <div class="faq-answer">
+        站内信息以历史与基础规则为主，并非实时比分直播。不过所有内容均会随大赛周期做例行检查，确保赛程节点、规则描述准确。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">如何辨别信息的可靠性？</div>
+      <div class="faq-answer">
+        页面内容主要参考国际足联官方文件与公开新闻报道，并在整理时标明引用范围。你也可以直接访问 
+        <a href="https://pc-shijiecup.com">世界杯</a> 
+        专题页面，那里有更完整的来源索引与赛事背景介绍。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">页面上的链接会跳转到哪里？</div>
+      <div class="faq-answer">
+        所有链接均指向 PC 实界杯自身的内容页或经过核验的外部资料页。没有推广链接或隐藏跳转，你可以放心浏览。
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    PC 实界杯 · 只为更清晰的世界杯印象
+  </div>
+</div>
+</body>
+</html>
